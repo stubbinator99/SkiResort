@@ -7,9 +7,8 @@ import java.math.BigDecimal;
 @Table(name = "pass_prices")
 public class Price {
     @Id
-    @GeneratedValue
     @Column(name = "price_id")
-    private String priceId;
+    private int priceId;
 
     @Column(name = "year")
     private int year;
@@ -44,11 +43,11 @@ public class Price {
         this.price = price;
     }
 
-    public String getPriceId() {
+    public int getPriceId() {
         return priceId;
     }
 
-    public void setPriceId(String priceId) {
+    public void setPriceId(int priceId) {
         this.priceId = priceId;
     }
 

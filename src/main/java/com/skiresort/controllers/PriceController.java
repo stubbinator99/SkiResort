@@ -12,7 +12,7 @@ public class PriceController {
     private PriceService priceService;
 
     @GetMapping(value = "/{priceId}", produces = "application/json")
-    public Price getPass(@PathVariable String priceId) {
+    public Price getPass(@PathVariable int priceId) {
         return priceService.getPriceById(priceId).orElse(null);
     }
 

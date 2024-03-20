@@ -12,7 +12,7 @@ public class PriceService {
   @Autowired
   private PriceRepository priceRepository;
 
-  public Optional<Price> getPriceById(String passId) {
+  public Optional<Price> getPriceById(int passId) {
     return priceRepository.findById(passId);
   }
 
