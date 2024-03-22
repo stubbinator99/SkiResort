@@ -1,8 +1,8 @@
 package com.skiresort.models;
 
 public enum SnowSport {
-    SNOWBOARDER,
-    SKIER,
+    SNOWBOARD,
+    SKI,
     BOARD_AND_SKI,
     UNDEFINED,
 }

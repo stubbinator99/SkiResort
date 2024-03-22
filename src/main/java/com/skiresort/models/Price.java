@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 @Table(name = "pass_prices")
 public class Price {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "price_id")
     private int priceId;
 

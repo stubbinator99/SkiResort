@@ -7,9 +7,9 @@ import java.time.LocalDate;
 @Table(name = "passes")
 public class Pass {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pass_id")
-    private String passId;
+    private long passId;
 
     @Column(name = "username", updatable = false, nullable = false)
     private String username;
@@ -21,7 +21,7 @@ public class Pass {
     private LocalDate endDate;
 
     @Column(name = "price_id")
-    private String priceId;
+    private int priceId;
 
     public Pass() {
     }
@@ -29,18 +29,18 @@ public class Pass {
     public Pass(String username,
                 LocalDate startDate,
                 LocalDate endDate,
-                String priceId) {
+                int priceId) {
         this.username = username;
         this.startDate = startDate;
         this.endDate = endDate;
         this.priceId = priceId;
     }
 
-    public String getPassId() {
+    public long getPassId() {
         return passId;
     }
 
-    public void setPassId(String passId) {
+    public void setPassId(long passId) {
         this.passId = passId;
     }
 
@@ -68,11 +68,11 @@ public class Pass {
         this.endDate = endDate;
     }
 
-    public String getPriceId() {
+    public int getPriceId() {
         return priceId;
     }
 
-    public void setPriceId(String priceId) {
+    public void setPriceId(int priceId) {
         this.priceId = priceId;
     }
 }

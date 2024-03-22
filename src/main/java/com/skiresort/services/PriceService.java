@@ -5,6 +5,8 @@ import com.skiresort.models.Price;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,5 +23,16 @@ public class PriceService {
 
 
     priceRepository.save(price);
+  }
+
+  public List<Price> getPricesForCurrentSeason() {
+    LocalDate now = LocalDate.now();
+    int seasonYear = now.getYear();
+
+    if (now.getMonthValue() < 5) {
+      seasonYear++;
+    }
+
+    return priceRepository.findForCurrentSeason(seasonYear);
   }
 }

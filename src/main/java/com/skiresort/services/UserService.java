@@ -5,6 +5,7 @@ import com.skiresort.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -17,8 +18,9 @@ public class UserService {
   }
 
   public void createNewUser(User user) {
-    // check for errors before saving it
+    // Validate data before saving
 
+    user.setJoinDate(LocalDate.now());
 
     userRepository.save(user);
   }
