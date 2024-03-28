@@ -225,3 +225,4 @@ docker-compose.yml
 gradle/wrapper/gradle-wrapper.jar
 gradlew
 gradlew.bat
+/project_notes/*
