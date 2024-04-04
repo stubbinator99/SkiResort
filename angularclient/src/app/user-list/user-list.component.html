@@ -12,10 +12,11 @@
       <tbody>
         <tr *ngFor="let user of users">
           <td>{{ user.firstName + " " + user.lastName }}</td>
-          <td>{{ user.username }}</td>
+          <td>
+            <a [routerLink]="['/users', user.username]">{{ user.username }}</a>
+          </td>
           <td>{{ user.snowSport }}</td>
           <td>{{ user.joinDate }}</td>
-          <td><a href="mailto:{{ user.username }}">{{ user.username }}</a></td>
         </tr>
       </tbody>
     </table>

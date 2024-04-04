@@ -26,10 +26,12 @@ public class Pass {
     public Pass() {
     }
 
-    public Pass(String username,
-                LocalDate startDate,
-                LocalDate endDate,
-                int priceId) {
+    public Pass(
+        String username,
+        LocalDate startDate,
+        LocalDate endDate,
+        int priceId
+    ) {
         this.username = username;
         this.startDate = startDate;
         this.endDate = endDate;

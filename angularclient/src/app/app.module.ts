@@ -6,14 +6,25 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
-import {UserService} from "./user.service";
+import {UserService} from "./services/user.service";
+import {UserDetailsComponent} from "./user-details/user-details.component";
+import {PassService} from "./services/pass.service";
+import {PassListComponent} from "./pass-list/pass-list.component";
+import {PassDetailsComponent} from "./pass-details/pass-details.component";
+import {PassFormComponent} from "./pass-form/pass-form.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
     UserListComponent,
-    UserFormComponent
+    UserDetailsComponent,
+    UserFormComponent,
+
+    PassListComponent,
+    PassDetailsComponent,
+    PassFormComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +32,10 @@ import {UserService} from "./user.service";
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    PassService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

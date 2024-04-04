@@ -14,7 +14,7 @@ public class UsersController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/id/{userId}", produces = "application/json")
+    @GetMapping(value = "/{userId}", produces = "application/json")
     public User getUser(@PathVariable String userId) {
         return userService.getUserById(userId).orElse(null);
     }

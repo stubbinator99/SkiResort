@@ -1,0 +1,25 @@
+<div class="card my-5">
+  <div class="card-body">
+    <div class="table table-bordered table-striped">
+      <thead class="theme-dark">
+        <tr>
+          <th scope="col">Price</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Pass Type</th>
+          <th scope="col">Pass Category</th>
+        </tr>
+      </thead>
+      <tbody>
+<!--        <tr *ngFor="let pass of passes" [routerLink]="['/passes', pass.passId]">-->
+        <tr *ngFor="let pass of passes" [routerLink]="['/passes', pass.passId, { pass: pass }]">
+          <td>{{ pass.startDate | date }}</td>
+          <td>{{ pass.endDate | date }}</td>
+          <td>{{ pass.passType }}</td>
+          <td>{{ pass.passCategory }}</td>
+          <td>{{ pass.price | currency:'USD' }}</td>
+        </tr>
+      </tbody>
+    </div>
+  </div>
+</div>

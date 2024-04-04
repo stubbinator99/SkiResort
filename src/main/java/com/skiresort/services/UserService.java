@@ -19,14 +19,10 @@ public class UserService {
   }
 
   public void createNewUser(User user) {
-    // Validate data before saving
-
     user.setJoinDate(LocalDate.now());
-
     userRepository.save(user);
   }
 
-  //temp
   public List<User> getAllUsers() {
     return userRepository.findAll();
   }

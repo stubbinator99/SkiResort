@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Profile</h2>
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">First Name</th>
+            <td>{{ user.firstName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Last Name</th>
+            <td>{{ user.lastName }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Username</th>
+            <td>{{ user.username }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Snow Sport</th>
+            <td>{{ user.snowSport }}</td>
+          </tr>
+          <tr>
+            <th scope="row">Join Date</th>
+            <td>{{ user.joinDate | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

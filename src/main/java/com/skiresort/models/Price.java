@@ -15,10 +15,6 @@ public class Price {
     private int year;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "snow_sport")
-    private SnowSport snowSport;
-
-    @Enumerated(EnumType.STRING)
     @Column(name = "pass_type")
     private PassType passType;
 
@@ -38,7 +34,6 @@ public class Price {
                  PassCategory passCategory,
                  BigDecimal price) {
         this.year = year;
-        this.snowSport = snowSport;
         this.passType = passType;
         this.passCategory = passCategory;
         this.price = price;
@@ -58,14 +53,6 @@ public class Price {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public SnowSport getSnowSport() {
-        return snowSport;
-    }
-
-    public void setSnowSport(SnowSport snowSport) {
-        this.snowSport = snowSport;
     }
 
     public PassType getPassType() {

@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Pass Details</h2>
+  <div class="card">
+    <div class="card-body">
+      <table class="table">
+        <tbody>
+        <tr>
+          <th scope="row">Start Date</th>
+          <td>{{ pass.startDate | date }}</td>
+        </tr>
+        <tr>
+          <th scope="row">End Date</th>
+          <td>{{ pass.endDate | date }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pass Type</th>
+          <td>{{ pass.passType }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Pass Category</th>
+          <td>{{ pass.passCategory }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Price</th>
+          <td>{{ pass.price | currency:'USD' }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

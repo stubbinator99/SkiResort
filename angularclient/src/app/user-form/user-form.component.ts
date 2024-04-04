@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {User} from "../model/user";
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../user.service";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'user-form',
@@ -20,7 +20,7 @@ export class UserFormComponent {
   }
 
   onSubmit() {
-    this.userService.save(this.user).subscribe(result => this.goToUserList());
+    this.userService.newUser(this.user).subscribe(result => this.goToUserList());
   }
 
   goToUserList() {
