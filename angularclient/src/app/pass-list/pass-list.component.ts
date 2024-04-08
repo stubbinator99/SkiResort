@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PassWithPrice} from "../model/pass";
+import {Pass} from "../model/pass";
 import {PassService} from "../services/pass.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class PassListComponent implements OnInit {
   username: string;
-  passes: PassWithPrice[];
+  passes: Pass[];
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +25,11 @@ export class PassListComponent implements OnInit {
   }
 
   private loadPassList() {
-    this.passService.getAllPassesForUser(this.username)
+    // temporary
+    this.passService.getAllPasses()
       .subscribe(passes => this.passes = passes);
+
+    /*this.passService.getAllPassesForUser(this.username)
+      .subscribe(passes => this.passes = passes);*/
   }
 }

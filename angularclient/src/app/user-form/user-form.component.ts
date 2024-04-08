@@ -9,7 +9,7 @@ import {UserService} from "../services/user.service";
   styleUrl: './user-form.component.css'
 })
 export class UserFormComponent {
-  user: User
+  user: User;
 
   constructor(
     private route: ActivatedRoute,

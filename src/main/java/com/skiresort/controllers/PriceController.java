@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/prices")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PriceController {
     @Autowired
     private PriceService priceService;

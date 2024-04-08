@@ -16,7 +16,7 @@ public class PassWithPriceOld {
     public PassWithPriceOld() { }
 
     public PassWithPriceOld(Pass pass, Price price) {
-        mapToPassWithPrice(pass, price);
+        //mapToPassWithPrice(pass, price);
     }
 
     public long getPassId() {
@@ -83,7 +83,7 @@ public class PassWithPriceOld {
         this.passCategory = passCategory;
     }
 
-    private void mapToPassWithPrice(Pass pass, Price price) {
+    /*private void mapToPassWithPrice(Pass pass, Price price) {
         this.passId = pass.getPassId();
         this.username = pass.getUsername();
         this.startDate = pass.getStartDate();
@@ -92,5 +92,5 @@ public class PassWithPriceOld {
         this.price = price.getPrice();
         this.passType = price.getPassType();
         this.passCategory = price.getPassCategory();
-    }
+    }*/
 }

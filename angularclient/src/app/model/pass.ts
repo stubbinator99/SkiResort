@@ -1,10 +1,12 @@
-export class Pass {
+import {Price} from "../price";
+
+/*export class Pass {
   passId: number;
   username: string;
   startDate: Date;
   endDate: Date;
   priceId: number;
-}
+}*/
 
 export enum PassType {
   DAY,
@@ -18,24 +20,31 @@ export enum PassType {
 }
 
 export class PassCategory {
-  public static readonly ADULT = new PassCategory("Ages 12 to 64");
-  public static readonly CHILD = new PassCategory("Ages 6 and under");
-  public static readonly MILITARY = new PassCategory("Veterans or active military");
-  public static readonly SENIOR = new PassCategory("Ages 65 and up");
-  public static readonly YOUTH = new PassCategory("Ages 7 to 11");
+  public static readonly ADULT = new PassCategory("Adult", "Ages 12 to 64");
+  public static readonly CHILD = new PassCategory("Child", "Ages 6 and under");
+  public static readonly MILITARY = new PassCategory("Military", "Veterans or active military");
+  public static readonly SENIOR = new PassCategory("Senior", "Ages 65 and up");
+  public static readonly YOUTH = new PassCategory("Youth", "Ages 7 to 11");
 
-  private constructor(public readonly description: string) { }
+  private constructor(public readonly name: string, public readonly description: string) { }
+
+  static getAllCategories(): PassCategory[] {
+    return [
+      PassCategory.ADULT,
+      PassCategory.CHILD,
+      PassCategory.MILITARY,
+      PassCategory.SENIOR,
+      PassCategory.YOUTH
+    ];
+  }
 }
 
-export class PassWithPrice {
+export class Pass {
   passId: number;
   username: string;
   startDate: Date;
   endDate: Date;
-  priceId: number;
-  price: string;
-  passType: PassType;
-  passCategory: PassCategory;
+  price: Price;
 }
 
 /*let USDollar = new Intl.NumberFormat('en-US', {

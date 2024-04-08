@@ -10,12 +10,12 @@ import java.util.Optional;
 
 @Repository
 public interface PassRepository extends JpaRepository<Pass, Long> {
-    @Query("SELECT p FROM Pass p WHERE p.passId = ?1")
-    Optional<Pass> findPassById(String id);
+    /*@Query("SELECT p FROM Pass p WHERE p.passId = ?1")
+    Optional<Pass> findPassById(String id);*/
 
     @Query(value =
-        //"SELECT p.*, pr.* FROM passes p JOIN pass_prices pr ON p.price_id = pr.price_id WHERE p.pass_id = ?1",
-        "SELECT p.pass_id AS pass_id, " +
+        "SELECT p.*, pr.* FROM passes p JOIN pass_prices pr ON p.price_id = pr.price_id WHERE p.pass_id = ?1", nativeQuery = true)
+        /*"SELECT p.pass_id AS pass_id, " +
             "p.username AS username, " +
             "p.start_date AS start_date, " +
             "p.end_date AS end_date, " +
@@ -27,11 +27,11 @@ public interface PassRepository extends JpaRepository<Pass, Long> {
             "FROM passes p " +
             "JOIN pass_prices pr ON p.price_id = pr.price_id " +
             "WHERE p.pass_id = ?1",
-        nativeQuery = true)
-    Object[] findPassWithPriceById(String passId);
+        nativeQuery = true)*/
+    Optional<Pass> findPassById(String passId);
 
     @Query(value = "SELECT p.*, pr.* FROM passes p JOIN pass_prices pr ON p.price_id = pr.price_id WHERE p.username = ?1", nativeQuery = true)
-    List<Object[]> findPassesWithPricesForUsername(String username);
+    List<Pass> findPassesWithPricesForUsername(String username);
 
     @Query(nativeQuery = true,
         value = "SELECT p.*, pr.* " +
@@ -42,5 +42,5 @@ public interface PassRepository extends JpaRepository<Pass, Long> {
                 "ELSE 'infinity'::date " +
             "END, " +
             "start_date DESC LIMIT 1")
-    Optional<Object[]> findSoonestPassForUser(String username);
+    Optional<Pass> findSoonestPassForUser(String username);
 }

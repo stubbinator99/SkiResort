@@ -14,15 +14,15 @@
         </tr>
         <tr>
           <th scope="row">Pass Type</th>
-          <td>{{ pass.passType }}</td>
+          <td>{{ pass.price!.passType }}</td>
         </tr>
         <tr>
           <th scope="row">Pass Category</th>
-          <td>{{ pass.passCategory }}</td>
+          <td>{{ pass.price!.passCategory }}</td>
         </tr>
         <tr>
           <th scope="row">Price</th>
-          <td>{{ pass.price | currency:'USD' }}</td>
+          <td>{{ pass.price!.price | currency:'USD' }}</td>
         </tr>
         </tbody>
       </table>

@@ -20,22 +20,22 @@ public class Pass {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "price_id")
-    private int priceId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "price_id")
+    private Price price;
 
-    public Pass() {
-    }
+    public Pass() { }
 
     public Pass(
         String username,
         LocalDate startDate,
         LocalDate endDate,
-        int priceId
+        Price price
     ) {
         this.username = username;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.priceId = priceId;
+        this.price = price;
     }
 
     public long getPassId() {
@@ -70,12 +70,12 @@ public class Pass {
         this.endDate = endDate;
     }
 
-    public int getPriceId() {
-        return priceId;
+    public Price getPrice() {
+        return price;
     }
 
-    public void setPriceId(int priceId) {
-        this.priceId = priceId;
+    public void setPrice(Price price) {
+        this.price = price;
     }
 }
 

@@ -12,12 +12,12 @@
       </thead>
       <tbody>
 <!--        <tr *ngFor="let pass of passes" [routerLink]="['/passes', pass.passId]">-->
-        <tr *ngFor="let pass of passes" [routerLink]="['/passes', pass.passId, { pass: pass }]">
+        <tr *ngFor="let pass of passes" [routerLink]="['/passes', pass.passId]" [state]="{ pass: pass }">
+          <td>{{ pass.price!.price | currency:'USD' }}</td>
           <td>{{ pass.startDate | date }}</td>
           <td>{{ pass.endDate | date }}</td>
-          <td>{{ pass.passType }}</td>
-          <td>{{ pass.passCategory }}</td>
-          <td>{{ pass.price | currency:'USD' }}</td>
+          <td>{{ pass.price!.passType }}</td>
+          <td>{{ pass.price!.passCategory }}</td>
         </tr>
       </tbody>
     </div>

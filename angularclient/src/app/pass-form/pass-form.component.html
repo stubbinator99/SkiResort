@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #passForm="ngForm">
+      <div class="form-group">
+        <label for="passType">Pass Type</label>
+        <select [(ngModel)]="pass.price.passType"
+               class="form-control"
+               id="passType"
+               name="passType"
+               required #passType="ngModel">
+          <option *ngFor="let pType of passTypes" [value]="pType">{{ pType }}</option>
+        </select>
+        <div [hidden]="passType.valid && (passType.pristine || passType.untouched)" class="alert alert-danger">Pass Type is required</div>
+        <label for="passCategory">Pass Category</label>
+        <select [(ngModel)]="pass.price.passCategory"
+                class="form-control"
+                id="passCategory"
+                name="passCategory"
+                required #passCategory="ngModel">
+          <option *ngFor="let pCategory of passCategories"
+                  [value]="pCategory.value">{{ passCategory.name + "(" + pCategory.description + ")" }}</option>
+        </select>
+      </div>
+      <div [hidden]="passCategory.valid && (passCategory.pristine || passCategory.untouched)" class="alert alert-danger">Pass Category is required</div>
+      <button type="submit" [disabled]="!passForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

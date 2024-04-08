@@ -1,7 +1,7 @@
-import { PassWithPrice } from './pass';
+import { Pass } from './pass';
 
 describe('Pass', () => {
   it('should create an instance', () => {
-    expect(new PassWithPrice()).toBeTruthy();
+    expect(new Pass()).toBeTruthy();
   });
 });

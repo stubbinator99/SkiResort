@@ -1,7 +1,6 @@
 package com.skiresort.controllers;
 
 import com.skiresort.models.Pass;
-import com.skiresort.models.PassWithPrice;
 import com.skiresort.services.PassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,13 +9,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/passes")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PassController {
     @Autowired
     private PassService passService;
 
+    //temporary
+    @GetMapping
+    public List<Pass> getAllPasses() {
+        return passService.getAllPasses();
+    }
+
     @GetMapping(value = "/id/{passId}", produces = "application/json")
-    public PassWithPrice getPass(@PathVariable String passId) {
-        return passService.getPassWithPriceById(passId).orElse(null);
+    public Pass getPass(@PathVariable String passId) {
+        return passService.getPassById(passId).orElse(null);
     }
 
     @PostMapping(value = "/new")
@@ -25,12 +31,12 @@ public class PassController {
     }
 
     @GetMapping(value = "/user/{username}")
-    public List<PassWithPrice> getAllPassesForUser(@PathVariable String username) {
+    public List<Pass> getAllPassesForUser(@PathVariable String username) {
         return passService.getAllPassesForUser(username);
     }
 
     @GetMapping(value = "/user/closest/{username}")
-    public PassWithPrice getSoonestPassForUser(@PathVariable String username) {
+    public Pass getSoonestPassForUser(@PathVariable String username) {
         return passService.getSoonestPassForUser(username).orElse(null);
     }
 }
